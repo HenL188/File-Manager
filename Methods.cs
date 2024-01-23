@@ -7,7 +7,7 @@ namespace FileManager
     public class Methods
     {
 
-        //Change = @$"c:\Users\henry\onedrive\" to @$"c:\path\"
+       
         public static void Execute()
         {
             switch (Console.ReadLine())
@@ -67,13 +67,13 @@ namespace FileManager
         {    
             Console.WriteLine("Enter directory:");
             string directory = Console.ReadLine() ?? "";
-            string directoryPath = @$"c:\Users\henry\onedrive\{directory}";
+            string directoryPath = @$"c:\path\to\{directory}";
             if (Directory.Exists(directoryPath))
             {
                 Console.WriteLine("Enter File name:");
                 string file = Console.ReadLine()?? "";
 
-                string filePath = @$"c:\Users\henry\onedrive\{directory}\" + file;
+                string filePath = @$"c:\path\to\{directory}\" + file;
                 Console.WriteLine(File.Exists(filePath) ? filePath : "File does not exist.");
             }
 
@@ -87,7 +87,7 @@ namespace FileManager
         {
             Console.WriteLine("Enter directory name:");
             var findDirectory = Console.ReadLine() ?? "";
-            var directoryPath = @$"c:\Users\henry\onedrive\" + findDirectory;
+            var directoryPath = @$"c:\path\to\" + findDirectory;
             if(Directory.Exists(directoryPath))
             {
                 Console.WriteLine(directoryPath);
@@ -102,11 +102,11 @@ namespace FileManager
         {
             Console.WriteLine("Enter directory:");
             var path = Console.ReadLine()?? "";
-            var directoryPath = @$"c:\Users\henry\onedrive\" + path;
+            var directoryPath = @$"c:\path\to\" + path;
             if (Directory.Exists(directoryPath))
             {
-                string[] directoryEntries = Directory.GetDirectories(@$"c:\Users\henry\onedrive\" + path);
-                string[] fileEntries = Directory.GetFiles(@$"c:\Users\henry\onedrive\" + path);
+                string[] directoryEntries = Directory.GetDirectories(@$"c:\path\to\" + path);
+                string[] fileEntries = Directory.GetFiles(@$"c:\path\to\" + path);
                 foreach (string dir in directoryEntries)
                 {
                     Console.WriteLine(dir);
@@ -127,7 +127,7 @@ namespace FileManager
         {
             Console.WriteLine("Enter directory:");
             var directory = Console.ReadLine() ?? "";
-            var path = @$"c:\Users\henry\onedrive\" + directory;
+            var path = @$"c:\path\to\" + directory;
             Console.WriteLine(Directory.GetParent(path));
             Loop();
         }
@@ -135,12 +135,12 @@ namespace FileManager
         {
             Console.WriteLine("Enter directory:");
             string directory = Console.ReadLine() ?? "";
-            string directoryPath = @$"c:\Users\henry\onedrive\{directory}";
+            string directoryPath = @$"c:\path\to\{directory}";
             if (Directory.Exists(directoryPath))
             {
                 Console.WriteLine("Enter File name:");
                 string file = Console.ReadLine() ?? "";
-                string filePath = @$"c:\Users\henry\onedrive\{directory}\" + file;
+                string filePath = @$"c:\path\to\{directory}\" + file;
                 if (File.Exists(filePath)) 
                 {
                     //This is code from https://learn.microsoft.com/en-us/dotnet/api/system.io.file.openread?view=net-8.0
@@ -173,18 +173,18 @@ namespace FileManager
         {
             Console.WriteLine("Enter directory:");
             string directory = Console.ReadLine() ?? "";
-            string directoryPath = @$"c:\Users\henry\onedrive\{directory}";
+            string directoryPath = @$"c:\path\to\{directory}";
             if (Directory.Exists(directoryPath))
             {
                 Console.WriteLine("Enter File name:");
                 string file = Console.ReadLine() ?? "";
-                string filePath = @$"c:\Users\henry\onedrive\{directory}\" + file;
+                string filePath = @$"c:\path\to\{directory}\" + file;
                 if (File.Exists(filePath)) 
                 {
                     Console.WriteLine("Enter directory moving to:");
                     string fileMove = Console.ReadLine() ?? "";
-                    string filePath2 = @$"c:\Users\henry\onedrive\{directory}\" + file;
-                    string fileMoveTo = @$"c:\Users\henry\onedrive\{fileMove}\" + file;
+                    string filePath2 = @$"c:\path\to\{directory}\" + file;
+                    string fileMoveTo = @$"c:\path\to\{fileMove}\" + file;
                     File.Move(filePath2, fileMoveTo);
                     Console.WriteLine("{0} was moved to {1}.", file, fileMoveTo);
                 }
@@ -207,12 +207,12 @@ namespace FileManager
         {
             Console.WriteLine("Directory you want to create file in:");
             var directory = Console.ReadLine() ?? "";
-            var directoryPath = @$"c:\Users\henry\onedrive\{directory}";
+            var directoryPath = @$"c:\path\to\{directory}";
             if (Directory.Exists(directoryPath))
             {
                 Console.WriteLine("File you want to create:");
                 var file = Console.ReadLine();
-                var fileCreate = @$"c:\Users\henry\onedrive\{directory}\" + file;
+                var fileCreate = @$"c:\path\to\{directory}\" + file;
                 File.Create(fileCreate);
             }
             else
@@ -226,12 +226,12 @@ namespace FileManager
         {
             Console.WriteLine("Directory you want to create directroy in:");
             var directory = Console.ReadLine() ?? "";
-            var directoryPath = @$"c:\Users\henry\onedrive\{directory}";
+            var directoryPath = @$"c:\path\to\{directory}";
             if (Directory.Exists(directoryPath))
             {
                 Console.WriteLine("Directory you want to create:");
                 var directory2 = Console.ReadLine();
-                var directoryCreate = @$"c:\Users\henry\onedrive\{directory}\" + directory2;
+                var directoryCreate = @$"c:\path\to\{directory}\" + directory2;
                 Directory.CreateDirectory(directoryCreate);
             }
             else
@@ -245,7 +245,7 @@ namespace FileManager
         {
             Console.WriteLine("Directory you want to delete file in:");
             var directory = Console.ReadLine() ?? "";
-            var directoryPath = @$"c:\Users\henry\onedrive\{directory}";
+            var directoryPath = @$"c:\path\to\{directory}";
             if (Directory.Exists(directoryPath))
             {
                 Console.WriteLine("File you want to delete:");
@@ -253,7 +253,7 @@ namespace FileManager
                 var filePath = Path.Combine(directoryPath, file);
                 if (File.Exists(filePath)) 
                 {
-                    var fileDelete = @$"c:\Users\henry\onedrive\{directory}\" + file;
+                    var fileDelete = @$"c:\path\to\{directory}\" + file;
                     File.Delete(fileDelete);
                 }
                 else
@@ -273,7 +273,7 @@ namespace FileManager
         {
             Console.WriteLine("Directory you want to delete:");
             var directory = Console.ReadLine() ?? "";
-            var directoryPath = @$"c:\Users\henry\onedrive\{directory}";
+            var directoryPath = @$"c:\path\to\{directory}";
             if (Directory.Exists(directoryPath))
             {
                 Directory.Delete(directoryPath, true);
@@ -317,13 +317,13 @@ namespace FileManager
             var directoryMove = Console.ReadLine() ?? "";
             Console.WriteLine("Directory you want to move into:");
             var directory = Console.ReadLine() ?? "";
-            var directory2 = @$"c:\Users\henry\onedrive\{directory}\" + directoryMove;
+            var directory2 = @$"c:\path\to\{directory}\" + directoryMove;
             if (Directory.Exists(directory2))
             {
                 Directory.CreateDirectory(directory2);
                 Console.WriteLine("Directory path you want to move:");
                 var directoryMove2 = Console.ReadLine() ?? "";
-                var directoryMove3 = @$"c:\Users\henry\onedrive\{directoryMove2}";
+                var directoryMove3 = @$"c:\path\to\{directoryMove2}";
                 if (Directory.Exists(directoryMove3))
                 {
                     CopyDirectory(directoryMove3, directory2, true);
